@@ -3,7 +3,14 @@
 // Inspired by react-hot-toast library
 import * as React from "react";
 
+<<<<<<< HEAD
 import type { ToastActionElement, ToastProps } from "@/src/components/ui/toast";
+=======
+import type {
+  ToastActionElement,
+  ToastProps,
+} from "@/src/components/ui/toast"
+>>>>>>> 88af25158df0a8e4171729f32d4e753f779d2d39
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;
