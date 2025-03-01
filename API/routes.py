@@ -17,8 +17,8 @@ nltk.download('punkt_tab')
 
 router = APIRouter()
 
-pytesseract.pytesseract.tesseract_cmd = r"F:/Ishan_Data/PII_Detection/tesseract.exe"
-
+pytesseract.pytesseract.tesseract_cmd = r"C:/Program Files/Tesseract-OCR/tesseract"
+# "F:/Ishan_Data/PII_Detection/tesseract.exe"
 
 def perform_ocr(image: Image):
     return pytesseract.image_to_string(image)
@@ -55,7 +55,9 @@ async def upload_file(file: UploadFile = File(...)):
 
         # Process PDF
         if file_ext == "pdf":
-            images = convert_from_bytes(await file.read())
+            poppler_path = r"C:/Program Files/poppler-24.08.0/Library/bin"
+            file_content = await file.read()
+            images = convert_from_bytes(file_content, poppler_path=poppler_path)
             text = " ".join([perform_ocr(img) for img in images])
         else:  # Process JPG/PNG
             image = Image.open(BytesIO(await file.read()))
