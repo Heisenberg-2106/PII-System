@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { Loader2 } from "lucide-react"
-import { Progress } from "./ui/progress"
+import { useEffect, useState } from "react";
+import { Loader2 } from "lucide-react";
+import { Progress } from "./ui/progress";
 
 interface LoadingScreenProps {
-  progress: number
+  progress: number;
 }
 
 const securityFacts = [
@@ -18,27 +18,29 @@ const securityFacts = [
   "Regular document security audits can reduce data breach risks by 60%.",
   "The average cost of a data breach involving sensitive documents is $3.9 million.",
   "Proper document handling protocols can prevent 70% of accidental data exposures.",
-]
+];
 
 export function LoadingScreen({ progress }: LoadingScreenProps) {
-  const [fact, setFact] = useState("")
-  const [timeRemaining, setTimeRemaining] = useState<number | null>(null)
+  const [fact, setFact] = useState("");
+  const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
 
-  // Select a random fact on mount
   useEffect(() => {
-    const randomFact = securityFacts[Math.floor(Math.random() * securityFacts.length)]
-    setFact(randomFact)
-  }, [])
+    const randomFact =
+      securityFacts[Math.floor(Math.random() * securityFacts.length)];
+    setFact(randomFact);
+  }, []);
 
-  // Calculate estimated time remaining
   useEffect(() => {
     if (progress > 0) {
-      const estimatedTotal = 5000 // 5 seconds total estimated time
-      const elapsed = (progress / 100) * estimatedTotal
-      const remaining = Math.max(0, Math.ceil((estimatedTotal - elapsed) / 1000))
-      setTimeRemaining(remaining)
+      const estimatedTotal = 5000;
+      const elapsed = (progress / 100) * estimatedTotal;
+      const remaining = Math.max(
+        0,
+        Math.ceil((estimatedTotal - elapsed) / 1000)
+      );
+      setTimeRemaining(remaining);
     }
-  }, [progress])
+  }, [progress]);
 
   return (
     <div className="flex flex-col items-center justify-center space-y-8 py-8 text-center">
@@ -46,13 +48,26 @@ export function LoadingScreen({ progress }: LoadingScreenProps) {
         <div className="absolute inset-0 flex items-center justify-center">
           <Loader2 className="h-12 w-12 animate-spin text-primary" />
         </div>
-        <svg className="h-full w-full animate-pulse opacity-20" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="8" fill="none" className="text-primary" />
+        <svg
+          className="h-full w-full animate-pulse opacity-20"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
+            stroke="currentColor"
+            strokeWidth="8"
+            fill="none"
+            className="text-primary"
+          />
         </svg>
       </div>
 
       <div className="space-y-2">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Processing Your Document</h2>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Processing Your Document
+        </h2>
         <p className="text-gray-600 dark:text-gray-300">
           Please wait while we analyze and redact sensitive information
         </p>
@@ -61,18 +76,23 @@ export function LoadingScreen({ progress }: LoadingScreenProps) {
       <div className="w-full max-w-md space-y-2">
         <div className="flex justify-between text-sm">
           <span className="text-gray-500 dark:text-gray-400">Progress</span>
-          <span className="font-medium text-gray-700 dark:text-gray-300">{Math.round(progress)}%</span>
+          <span className="font-medium text-gray-700 dark:text-gray-300">
+            {Math.round(progress)}%
+          </span>
         </div>
         <Progress value={progress} className="h-2" />
         {timeRemaining !== null && (
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            Estimated time remaining: {timeRemaining} {timeRemaining === 1 ? "second" : "seconds"}
+            Estimated time remaining: {timeRemaining}{" "}
+            {timeRemaining === 1 ? "second" : "seconds"}
           </p>
         )}
       </div>
 
       <div className="mt-8 max-w-lg rounded-lg bg-gray-50 p-6 dark:bg-gray-800/50">
-        <h3 className="mb-2 text-lg font-medium text-gray-900 dark:text-white">Did You Know?</h3>
+        <h3 className="mb-2 text-lg font-medium text-gray-900 dark:text-white">
+          Did You Know?
+        </h3>
         <p className="text-gray-600 dark:text-gray-300">{fact}</p>
       </div>
 
@@ -93,6 +113,5 @@ export function LoadingScreen({ progress }: LoadingScreenProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
