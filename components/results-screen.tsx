@@ -4,10 +4,10 @@ import type React from "react"
 
 import { useState } from "react"
 import { Download, Upload, Shield, AlertTriangle, CheckCircle, Info } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
+import { Button } from "@/src/components/ui/button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/src/components/ui/tabs"
+import { Badge } from "@/src/components/ui/badge"
+import { Progress } from "@/src/components/ui/progress"
 import type { VerificationResult, SensitiveInfoType } from "@/components/verification-system"
 
 interface ResultsScreenProps {

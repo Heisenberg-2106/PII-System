@@ -4,8 +4,8 @@ import type React from "react"
 
 import { useState, useRef } from "react"
 import { FileUp, Upload, AlertCircle, FileText, Image, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Alert, AlertDescription } from "@/components/ui/alert"
+import { Button } from "@/src/components/ui/button"
+import { Alert, AlertDescription } from "@/src/components/ui/alert"
 
 interface UploadScreenProps {
   onFileSubmit: (file: File) => void

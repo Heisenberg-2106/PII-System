@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Loader2 } from "lucide-react"
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "@/src/components/ui/progress"
 
 interface LoadingScreenProps {
   progress: number
