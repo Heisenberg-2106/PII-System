@@ -1,5 +1,5 @@
-"use client"
-import { VerificationSystem } from "@/components/verification-system"
+"use client";
+import { VerificationSystem } from "../src/components/verification-system";
 
 export default function Home() {
   return (
@@ -11,6 +11,5 @@ export default function Home() {
         <VerificationSystem />
       </div>
     </main>
-  )
+  );
 }
-
