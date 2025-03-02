@@ -2,7 +2,7 @@
 import { LoadingScreen } from "@/src/components/loading-screen";
 import { VerificationSystem } from "../src/components/verification-system";
 import HomePage from "@/src/components/home-page";
-import Navbar from "@/src/components/navbar";
+import Navbar from "@/src/components/Navbar";
 
 export default function Home() {
   return (
