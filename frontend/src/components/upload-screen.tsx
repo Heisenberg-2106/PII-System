@@ -3,10 +3,28 @@
 import type React from "react";
 
 import { useState, useRef } from "react";
-import { FileUp, Upload, AlertCircle, FileText, Image, X } from "lucide-react";
+import {
+  FileUp,
+  Upload,
+  AlertCircle,
+  FileText,
+  Image,
+  X,
+  ArrowRight,
+  FileCheck,
+} from "lucide-react";
 import { Button } from "./ui/button";
+import { FAQs } from "./faqs";
 import { Alert, AlertDescription } from "./ui/alert";
-
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "./ui/card";
+import Link from "next/link";
 interface UploadScreenProps {
   onFileSubmit: (file: File) => void;
 }

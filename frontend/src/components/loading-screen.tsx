@@ -43,10 +43,10 @@ export function LoadingScreen({ progress }: LoadingScreenProps) {
   }, [progress]);
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-8 py-8 text-center">
+    <div className="flex flex-col items-center justify-center space-y-8 text-center">
       <div className="relative h-32 w-32">
         <div className="absolute inset-0 flex items-center justify-center">
-          <Loader2 className="h-12 w-12 animate-spin text-primary" />
+          <Loader2 className="h-24 w-24 animate-spin text-primary" />
         </div>
         <svg
           className="h-full w-full animate-pulse opacity-20"
